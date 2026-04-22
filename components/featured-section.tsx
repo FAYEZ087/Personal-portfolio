@@ -109,6 +109,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 fill
                 sizes="(min-width: 640px) 200px, 45vw"
                 className="object-cover"
+                loading="lazy"
               />
             </motion.div>
 
@@ -126,7 +127,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
             {/* Animated gradient overlay on hover */}
             <div
-              className="pointer-events-none absolute inset-0 opacity-0 mix-blend-screen transition-opacity duration-500 group-hover:opacity-100"
+              className="hidden sm:block pointer-events-none absolute inset-0 opacity-0 mix-blend-screen transition-opacity duration-500 group-hover:opacity-100"
               style={{
                 backgroundImage:
                   "linear-gradient(115deg, oklch(0.7 0.25 305 / 0.45), oklch(0.82 0.18 210 / 0.25) 40%, oklch(0.6 0.22 320 / 0.4) 70%, oklch(0.7 0.25 305 / 0.45))",
@@ -137,7 +138,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
             {/* Radial hotspot glow on hover */}
             <div
-              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              className="hidden sm:block pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               style={{
                 background:
                   "radial-gradient(circle at 50% 70%, oklch(0.7 0.25 305 / 0.55), transparent 65%)",
@@ -145,11 +146,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             />
 
             {/* Diagonal shimmer */}
-            <span aria-hidden="true" className="shimmer-sweep rounded-2xl" />
+            <span aria-hidden="true" className="hidden sm:block shimmer-sweep rounded-2xl" />
 
             {/* Scanline overlay */}
             <div
-              className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
+              className="hidden sm:block pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
               style={{
                 backgroundImage:
                   "repeating-linear-gradient(to bottom, oklch(1 0 0 / 0.9) 0 1px, transparent 1px 3px)",

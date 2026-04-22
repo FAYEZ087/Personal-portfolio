@@ -172,12 +172,12 @@ function TiltLink({ link }: { link: LinkItem }) {
       />
 
       {/* Diagonal shimmer that sweeps across on hover */}
-      <span aria-hidden="true" className="shimmer-sweep rounded-2xl" />
+      <span aria-hidden="true" className="hidden sm:block shimmer-sweep rounded-2xl" />
 
       {/* Scanline overlay on hover */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-100"
+        className="hidden sm:block pointer-events-none absolute inset-0 opacity-0 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-100"
         style={{
           backgroundImage:
             "repeating-linear-gradient(to bottom, oklch(1 0 0 / 0.06) 0 1px, transparent 1px 4px)",

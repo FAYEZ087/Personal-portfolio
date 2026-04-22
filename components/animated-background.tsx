@@ -67,7 +67,7 @@ export function AnimatedBackground() {
 
       {/* Drifting purple blob */}
       <motion.div
-        className="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full blur-3xl"
+        className="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full blur-2xl sm:blur-3xl"
         style={{
           background:
             "radial-gradient(circle, oklch(0.55 0.25 305 / 0.5), transparent 70%)",
@@ -85,7 +85,7 @@ export function AnimatedBackground() {
 
       {/* Drifting cyan blob */}
       <motion.div
-        className="absolute -bottom-40 -right-32 h-[460px] w-[460px] rounded-full blur-3xl"
+        className="absolute -bottom-40 -right-32 h-[460px] w-[460px] rounded-full blur-2xl sm:blur-3xl"
         style={{
           background:
             "radial-gradient(circle, oklch(0.65 0.18 220 / 0.4), transparent 70%)",
@@ -103,7 +103,7 @@ export function AnimatedBackground() {
 
       {/* Center magenta accent blob */}
       <motion.div
-        className="absolute left-1/2 top-1/3 h-[380px] w-[380px] -translate-x-1/2 rounded-full blur-3xl"
+        className="absolute left-1/2 top-1/3 h-[380px] w-[380px] -translate-x-1/2 rounded-full blur-2xl sm:blur-3xl"
         style={{
           background:
             "radial-gradient(circle, oklch(0.6 0.22 320 / 0.25), transparent 70%)",
@@ -113,59 +113,63 @@ export function AnimatedBackground() {
       />
 
       {/* Diagonal moving light streaks */}
-      {streaks.map((s, i) => (
-        <motion.span
-          key={i}
-          className="absolute left-0 h-px w-[60%]"
-          style={{
-            top: s.top,
-            background:
-              "linear-gradient(90deg, transparent, oklch(0.82 0.18 210 / 0.9), oklch(0.7 0.25 305 / 0.9), transparent)",
-            filter: "blur(0.5px)",
-            transform: "rotate(-8deg)",
-            transformOrigin: "left center",
-            opacity: s.opacity,
-          }}
-          animate={{
-            x: ["-60%", "180%"],
-          }}
-          transition={{
-            duration: s.duration,
-            delay: s.delay,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        />
-      ))}
+      <div className="hidden sm:block">
+        {streaks.map((s, i) => (
+          <motion.span
+            key={i}
+            className="absolute left-0 h-px w-[60%]"
+            style={{
+              top: s.top,
+              background:
+                "linear-gradient(90deg, transparent, oklch(0.82 0.18 210 / 0.9), oklch(0.7 0.25 305 / 0.9), transparent)",
+              filter: "blur(0.5px)",
+              transform: "rotate(-8deg)",
+              transformOrigin: "left center",
+              opacity: s.opacity,
+            }}
+            animate={{
+              x: ["-60%", "180%"],
+            }}
+            transition={{
+              duration: s.duration,
+              delay: s.delay,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
 
       {/* Floating particles */}
-      {particles.map((p) => (
-        <motion.span
-          key={p.id}
-          className="absolute rounded-full bg-accent/70"
-          style={{
-            left: `${p.x}%`,
-            top: `${p.y}%`,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            boxShadow: "0 0 8px oklch(0.82 0.18 210 / 0.8)",
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.2, 0.9, 0.2],
-          }}
-          transition={{
-            duration: p.duration,
-            delay: p.delay,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+      <div className="hidden sm:block">
+        {particles.map((p) => (
+          <motion.span
+            key={p.id}
+            className="absolute rounded-full bg-accent/70"
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              boxShadow: "0 0 8px oklch(0.82 0.18 210 / 0.8)",
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.2, 0.9, 0.2],
+            }}
+            transition={{
+              duration: p.duration,
+              delay: p.delay,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
 
       {/* Subtle scanlines */}
       <div
-        className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+        className="hidden sm:block absolute inset-0 opacity-[0.04] mix-blend-overlay"
         style={{
           backgroundImage:
             "repeating-linear-gradient(to bottom, oklch(1 0 0 / 0.9) 0 1px, transparent 1px 3px)",

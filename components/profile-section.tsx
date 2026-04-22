@@ -89,7 +89,7 @@ export function ProfileSection() {
           {/* Moving horizontal scan line */}
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 h-8"
+            className="hidden sm:block pointer-events-none absolute inset-x-0 h-8"
             style={{
               background:
                 "linear-gradient(to bottom, transparent, oklch(0.82 0.18 210 / 0.45), transparent)",
@@ -99,7 +99,7 @@ export function ProfileSection() {
           />
           {/* Subtle scanline overlay */}
           <div
-            className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-20"
+            className="hidden sm:block pointer-events-none absolute inset-0 mix-blend-overlay opacity-20"
             style={{
               backgroundImage:
                 "repeating-linear-gradient(to bottom, oklch(0.82 0.18 210 / 0.6) 0 1px, transparent 1px 3px)",
